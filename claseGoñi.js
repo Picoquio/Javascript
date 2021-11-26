@@ -1,14 +1,20 @@
-// Variables:
-let number = prompt('Introduzca una tecla cualquiera');
+
+// For
+for (let i = 1; i < 5; i++) {
+
+    let numero = parseInt(prompt('Ingresa un número'));
+
+    let acumulado = 0
+
+    acumulado = acumulado + numero;
+
+    alert('La sumatoria acumulada de los números ingresados es: ' + acumulado);
+
+}
 
 
-// Flujo:
-if (number.length == 1) {
-    alert('Su indice de masa corporal se encuentra dentro de los estándares saludables.');
-}
-else if (number.length > 1) {
-    alert('Los dedos que usó para marcar son demasiado gordos. Para obtener una barra especial, oprima todos los botones con la palma de su mano.');
-}
-else {
-    alert('Error: debe ingresar al menos un caracter. Por favor cargue nuevamente esta página.');
-}
+// Do while
+do {
+   var trapped = prompt('Estás atrapado en un do-while. Para salir necesitás ingresar algo abstracto pero muy útil; cualquier ejemplar de todos ellos');
+   // utilizado el 'var' en lugar de 'let' para que el while pueda acceder al contenido de la variable
+} while (isNaN(trapped));
