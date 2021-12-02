@@ -1,20 +1,52 @@
 
-// For
-for (let i = 1; i < 5; i++) {
+let cantidad = prompt('Acaba de seleccionar: PAPEL HIGIÉNICO ULTRA SOFT (pack 4 rollos). Por favor elija la cantidad deseada:');
 
-    let numero = parseInt(prompt('Ingresa un número'));
+while (cantidad > 3) {
+   cantidad = prompt('El DNU 918/2022 limita la cantidad máxima a comprar de papel higiénico a 3 unidades mensuales. Sea obediente y elija una cantidad menor:')
+};
 
-    let acumulado = 0
+let cuotas = prompt('Por favor, elija en cuántas cuotas quiere pagar su PAPEL HIGIÉNICO ULTRA SOFT (1 a 6)');
 
-    acumulado = acumulado + numero;
 
-    alert('La sumatoria acumulada de los números ingresados es: ' + acumulado);
+const suma = (a, b) => a + b;
+const impuestoPatriotico = x => x * 0.82;
 
+
+let precioPapel = 180;
+
+//Usé el switch para subir el precio a medida que se piden más cuotas (ajuste inflacionario)
+switch (cuotas) {
+    case "1":
+        precioPapel = 180;
+        break;
+    case "2":
+        precioPapel = precioPapel * 1.08;
+        break;
+    case "3":
+        precioPapel = precioPapel * 1.12;
+        break;
+    case "4":
+        precioPapel = precioPapel * 1.16;
+        break;
+    case "5":
+        precioPapel = precioPapel * 1.20;
+        break;
+    case "6":
+        precioPapel = precioPapel * 1.24;
+        break;
+}
+
+let qCuotas = parseInt(cuotas);
+let precioFinal = (suma (precioPapel, impuestoPatriotico(precioPapel)) / qCuotas)
+
+if (qCuotas === 1) {
+    alert('El precio total es: ' + precioFinal.toFixed(2)  + ' pesos')
+}
+else {
+    let valorCuota = precioFinal * cantidad; // declaro variable para toFixear mas comodamente inmediatamente después
+    alert('Usted pagará ' + qCuotas + ' cuotas de ' + valorCuota.toFixed(2) * cantidad + ' pesos.')
 }
 
 
-// Do while
-do {
-   var trapped = prompt('Estás atrapado en un do-while. Para salir necesitás ingresar algo abstracto pero muy útil; cualquier ejemplar de todos ellos');
-   // utilizado el 'var' en lugar de 'let' para que el while pueda acceder al contenido de la variable
-} while (isNaN(trapped));
+
+
