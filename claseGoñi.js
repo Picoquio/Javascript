@@ -1,3 +1,19 @@
+/**
+ * @challenge: incorporación de funciones
+ * 
+ * @version: 4.0.1
+ * @author: Juan M. Goñi.
+ * @fecha: 02/12/2021.
+ *
+ * History:
+ *  - v1.0.1 – Primera entrega
+ *  - v2.0.0 - Segunda entrega
+ *  - v4.0.0 - Cuarta entrega
+ *  - v4.0.1 - Cuarta entrega: agregado límite efectivo al número de cuotas elegible
+ */
+
+
+
 
 let cantidad = prompt('Acaba de seleccionar: PAPEL HIGIÉNICO ULTRA SOFT (pack 4 rollos). Por favor elija la cantidad deseada:');
 
@@ -35,11 +51,18 @@ switch (cuotas) {
         precioPapel = precioPapel * 1.24;
         break;
 }
-
 let qCuotas = parseInt(cuotas);
+
+while (qCuotas > 6) {
+  let txt = prompt('Ingrese un número válido de cuotas');
+  qCuotas = parseInt(txt)
+}
+
 let precioFinal = (suma (precioPapel, impuestoPatriotico(precioPapel)) / qCuotas)
 
-if (qCuotas === 1) {
+
+
+if (qCuotas == 1) {
     alert('El precio total es: ' + precioFinal.toFixed(2)  + ' pesos')
 }
 else {
