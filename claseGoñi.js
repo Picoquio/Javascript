@@ -1,7 +1,7 @@
 /**
  * @challenge: incorporación de funciones
  * 
- * @version: 4.0.1
+ * @version: 4.0.2
  * @author: Juan M. Goñi.
  * @fecha: 02/12/2021.
  *
@@ -10,6 +10,7 @@
  *  - v2.0.0 - Segunda entrega
  *  - v4.0.0 - Cuarta entrega
  *  - v4.0.1 - Cuarta entrega: agregado límite efectivo al número de cuotas elegible
+ *  - v4.0.2 - Cuarta entrega: entrega complementaria.
  */
 
 
@@ -28,27 +29,27 @@ const suma = (a, b) => a + b;
 const impuestoPatriotico = x => x * 0.82;
 
 
-let precioPapel = 180;
+let precioProducto = 180;
 
 //Usé el switch para subir el precio a medida que se piden más cuotas (ajuste inflacionario)
 switch (cuotas) {
     case "1":
-        precioPapel = 180;
+        precioProducto = 180;
         break;
     case "2":
-        precioPapel = precioPapel * 1.08;
+        precioProducto = precioProducto * 1.08;
         break;
     case "3":
-        precioPapel = precioPapel * 1.12;
+        precioProducto = precioProducto * 1.12;
         break;
     case "4":
-        precioPapel = precioPapel * 1.16;
+        precioProducto = precioProducto * 1.16;
         break;
     case "5":
-        precioPapel = precioPapel * 1.20;
+        precioProducto = precioProducto * 1.20;
         break;
     case "6":
-        precioPapel = precioPapel * 1.24;
+        precioProducto = precioProducto * 1.24;
         break;
 }
 let qCuotas = parseInt(cuotas);
@@ -58,18 +59,33 @@ while (qCuotas > 6) {
   qCuotas = parseInt(txt)
 }
 
-let precioFinal = (suma (precioPapel, impuestoPatriotico(precioPapel)) / qCuotas)
-
+let precioFinal = (suma (precioProducto, impuestoPatriotico(precioProducto)) / qCuotas)
+let valorCuota = precioFinal * cantidad; 
 
 
 if (qCuotas == 1) {
     alert('El precio total es: ' + precioFinal.toFixed(2)  + ' pesos')
 }
 else {
-    let valorCuota = precioFinal * cantidad; // declaro variable para toFixear mas comodamente inmediatamente después
+    
     alert('Usted pagará ' + qCuotas + ' cuotas de ' + valorCuota.toFixed(2) * cantidad + ' pesos.')
 }
 
 
 
+// Consigna complementaria (tres funciones)
 
+function ipAcumulado () {
+    return (82 * (valorCuota * qCuotas * cantidad) / 100)
+
+}
+ function precioSinIp() {
+    return (valorCuota * qCuotas * cantidad)
+
+}
+function detallado (x, y) {
+    alert('El precio final de su producto se compone de dos elementos principales. El precio de rentabilidad (PR) y el Impuesto Patriótico (IP). El PR toatl de su compra es de ' + x.toFixed(2) + '. Mientras que el IP total es de ' + y.toFixed(2) + ".")
+
+}
+
+detallado (precioSinIp(), ipAcumulado())
