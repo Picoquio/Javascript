@@ -11,6 +11,7 @@
  *  - v4.0.0 - Cuarta entrega
  *  - v4.0.1 - Cuarta entrega: agregado límite efectivo al número de cuotas elegible
  *  - v4.0.2 - Cuarta entrega: entrega complementaria.
+ *  - v4.0.3 - Errores corregidos en la entrega complementaria
  */
 
 
@@ -76,11 +77,11 @@ else {
 // Consigna complementaria (tres funciones)
 
 function ipAcumulado () {
-    return (82 * (valorCuota * qCuotas * cantidad) / 100)
+    return (82 * (precioProducto * cantidad) / 100)
 
 }
  function precioSinIp() {
-    return (valorCuota * qCuotas * cantidad)
+    return (valorCuota * cantidad)
 
 }
 function detallado (x, y) {
@@ -88,4 +89,4 @@ function detallado (x, y) {
 
 }
 
-detallado (precioSinIp(), ipAcumulado())
+detallado (precioProducto, ipAcumulado())
