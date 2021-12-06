@@ -1,9 +1,9 @@
 /**
  * @challenge: incorporación de funciones
  * 
- * @version: 4.0.2
+ * @version: 4.1.0
  * @author: Juan M. Goñi.
- * @fecha: 02/12/2021.
+ * @fecha: 05/12/2021.
  *
  * History:
  *  - v1.0.1 – Primera entrega
@@ -12,6 +12,7 @@
  *  - v4.0.1 - Cuarta entrega: agregado límite efectivo al número de cuotas elegible
  *  - v4.0.2 - Cuarta entrega: entrega complementaria.
  *  - v4.0.3 - Errores corregidos en la entrega complementaria
+ *  - v4.1.0 - Agregado objeto/class
  */
 
 
@@ -74,19 +75,25 @@ else {
 
 
 
-// Consigna complementaria (tres funciones)
+// Agregando objetos - class
 
-function ipAcumulado () {
-    return (82 * (precioProducto * cantidad) / 100)
-
-}
- function precioSinIp() {
-    return (valorCuota * cantidad)
-
-}
-function detallado (x, y) {
-    alert('El precio final de su producto se compone de dos elementos principales. El precio de rentabilidad (PR) y el Impuesto Patriótico (IP). El PR toatl de su compra es de ' + x.toFixed(2) + '. Mientras que el IP total es de ' + y.toFixed(2) + ".")
-
+class Cliente {
+    constructor(nombre, domicilio, dni) {
+        this.nombre = nombre;
+        this.domicilio = domicilio;
+        this.dni = dni; 
+    }
+    compra () {
+        alert(`Gracias por su compra, ${this.nombre}. Los bienes serán entregados en ${this.domicilio} dentro de los próximos ocho meses. El dinero será descontado automáticamente de su crédito social.`)
+    }
 }
 
-detallado (precioProducto, ipAcumulado())
+//variables cuyo contenido será pasado a la instancia 
+let info = alert('Para proceder con la entrega le estaremos pidiendo unos datos personales');
+let nombrecillo = prompt('Ingrese su nombre y apellido')
+let adress = prompt('Ingrese su domicilio');
+let documento = prompt('Ingrese su DNI');
+
+//declaración y llamada
+const cliente1 = new Cliente(nombrecillo, adress, documento);
+cliente1.compra(); 
