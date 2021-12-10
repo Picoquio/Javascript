@@ -3,7 +3,7 @@
  * 
  * @version: 4.1.0
  * @author: Juan M. Goñi.
- * @fecha: 05/12/2021.
+ * @fecha: 09/12/2021.
  *
  * History:
  *  - v1.0.1 – Primera entrega
@@ -13,6 +13,7 @@
  *  - v4.0.2 - Cuarta entrega: entrega complementaria.
  *  - v4.0.3 - Errores corregidos en la entrega complementaria
  *  - v4.1.0 - Agregado objeto/class
+ *  - v4.2.0 - Agregado array
  */
 
 
@@ -34,7 +35,8 @@ function papelHigienico (){
 
     let precioProducto = 180;
 
-    //Usé el switch para subir el precio a medida que se piden más cuotas (ajuste inflacionario)
+    /*Usé el switch para subir el precio a medida que se piden más cuotas (ajuste inflacionario). Por alguna razón no están cerrando los valores mientras antes sí lo hacían.
+    Esto será arreglado en una futura entrega*/
     switch (cuotas) {
         case "1":
             precioProducto = 180;
